@@ -1,4 +1,62 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  locations: [
+    { zip: '36101',  name: 'AL  Montgomery' },
+    { zip: '99801',  name: 'AK  Juneau' },
+    { zip: '85001',  name: 'AZ  Phoenix' },
+    { zip: '72201',  name: 'AR  Little Rock' },
+    { zip: '94203',  name: 'CA  Sacramento' },
+    { zip: '80201',  name: 'CO  Denver' },
+    { zip: '06101',  name: 'CT  Hartford' },
+    { zip: '19901',  name: 'DE  Dover' },
+    { zip: '32301',  name: 'FL  Tallahassee' },
+    { zip: '30301',  name: 'GA  Atlanta' },
+    { zip: '96801',  name: 'HI  Honolulu' },
+    { zip: '83701',  name: 'ID  Boise' },
+    { zip: '62701',  name: 'IL  Springfield' },
+    { zip: '46201',  name: 'IN  Indianapolis' },
+    { zip: '50301',  name: 'IA  Des Moines' },
+    { zip: '66601',  name: 'KS  Topeka' },
+    { zip: '40601',  name: 'KY  Frankfort' },
+    { zip: '70801',  name: 'LA  Baton Rouge' },
+    { zip: '04330',  name: 'ME  Augusta' },
+    { zip: '21401',  name: 'MD  Annapolis' },
+    { zip: '02108',  name: 'MA  Boston' },
+    { zip: '48901',  name: 'MI  Lansing' },
+    { zip: '55101',  name: 'MN  St. Paul' },
+    { zip: '39201',  name: 'MS  Jackson' },
+    { zip: '65101',  name: 'MO  Jefferson City' },
+    { zip: '59601',  name: 'MT  Helena' },
+    { zip: '68501',  name: 'NE  Lincoln' },
+    { zip: '89701',  name: 'NV  Carson City' },
+    { zip: '03301',  name: 'NH  Concord' },
+    { zip: '08601',  name: 'NJ  Trenton' },
+    { zip: '87501',  name: 'NM  Santa Fe' },
+    { zip: '12201',  name: 'NY  Albany' },
+    { zip: '27601',  name: 'NC  Raleigh' },
+    { zip: '58501',  name: 'ND  Bismarck' },
+    { zip: '43201',  name: 'OH  Columbus' },
+    { zip: '73101',  name: 'OK  Oklahoma City' },
+    { zip: '97301',  name: 'OR  Salem' },
+    { zip: '17101',  name: 'PA  Harrisburg' },
+    { zip: '02901',  name: 'RI  Providence' },
+    { zip: '29201',  name: 'SC  Columbia' },
+    { zip: '57501',  name: 'SD  Pierre' },
+    { zip: '37201',  name: 'TN  Nashville' },
+    { zip: '73301',  name: 'TX  Austin' },
+    { zip: '84101',  name: 'UT  Salt Lake City' },
+    { zip: '05601',  name: 'VT  Montpelier' },
+    { zip: '23218',  name: 'VA  Richmond' },
+    { zip: '98501',  name: 'WA  Olympia' },
+    { zip: '25301',  name: 'WV  Charleston' },
+    { zip: '53701',  name: 'WI  Madison' },
+    { zip: '82001',  name: 'WY  Cheyenne' },
+  ],
+
+  actions: {
+    redirectToLocation: function(data) {
+      this.transitionToRoute("/air_quality_observations/" + data);
+    }
+  }
 });

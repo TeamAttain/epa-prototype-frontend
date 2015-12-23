@@ -1,10 +1,12 @@
 <h1>AirFit Dashboard</h1>
   <div class="entries">
     <div class="select-menu">
-      <select class="select">
-        <option>Durham, NC</option>
-        <option>New Orleans, LA</option>
-        <option>San Francisco, CA</option>
+      <select class="select" onchange={{action "redirectToLocation" value="target.value"}}>
+        {{#each locations as |loc|}}
+          <option value="{{loc.zip}}" selected={{is-equal loc.zip zip_code}}>
+            {{loc.name}}
+          </option>
+        {{/each}}
       </select>
     </div>
     <div class="entry entry--header">
@@ -21,6 +23,7 @@
           percentageOutside=activity.firstObject.percentageOutside
           inside=activity.firstObject.inside
           outside=activity.firstObject.outside
+          parameterName=observation.parameterName
       }}
     {{/each}}
   </div>

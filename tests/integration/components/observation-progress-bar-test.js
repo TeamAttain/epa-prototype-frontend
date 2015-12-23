@@ -13,10 +13,12 @@ test('it renders', function(assert) {
     percentageOutside="30"
     inside="70"
     outside="30"
+    parameterName="O3"
   }}`);
 
   assert.equal(this.$('.entry').attr('class').trim(), 'entry entry--aqi-1');
   assert.equal(this.$('.entry__aqi').text().trim(), '123');
   assert.equal(this.$('.progress-bar').attr('style').trim(), 'width: 30%');
   assert.equal(this.$('.entry__date').text().trim(), 'Dec 12');
+  assert.equal(this.$('.entry__parameter-name').text().trim(), 'O3');
 });
