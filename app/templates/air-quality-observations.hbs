@@ -1,7 +1,7 @@
 <h1>AirFit Dashboard</h1>
   <div class="entries">
     <div class="select-menu">
-      <select class='select' onchange={{action "redirectToLocation" value="target.value"}}>
+      <select class="select" onchange={{action "redirectToLocation" value="target.value"}}>
         {{#each locations as |loc|}}
           <option value="{{loc.zip}}" selected={{is-equal loc.zip zip_code}}>
             {{loc.name}}
