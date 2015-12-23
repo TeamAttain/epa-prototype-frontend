@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/smashingboxes/epa-prototype-frontend.svg)](https://travis-ci.org/smashingboxes/epa-prototype-frontend)
+
 # Epa-fe
 
 This README outlines the details of collaborating on this Ember application.

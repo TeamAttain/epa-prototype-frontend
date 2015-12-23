@@ -6,6 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('air_quality_observations', { path: '/air_quality_observations/:zip_code' });
 });
 
 export default Router;

@@ -1,1 +1,162 @@
-@import 'd3';
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700);
+
+$light-gray: #ecf0f1;
+$med-gray: #bdc3c7;
+$dark-gray: #7f8c8d;
+
+$green: #A5D027;
+$yellow: #FFDD0F;
+$orange: #F88F00;
+$red: #F12314;
+$purple: #A41849;
+
+$aqi-1: $green;
+$aqi-2: $yellow;
+$aqi-3: $orange;
+$aqi-4: $red;
+$aqi-5: $purple;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  padding: 5vmax;
+  background: $light-gray;
+  font-family: 'Source Sans Pro';
+  line-height: 1.5;
+}
+
+h1 {
+  color: $med-gray;
+  font-family: 'Merriweather';
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.entries {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.select-menu {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto 20px auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  
+  &:after {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    content: '\25BE';
+    font-family: 'sans-serif';
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+}
+
+.select {
+  display: block;
+  position: relative;
+  width: 100%;
+  top: -1px;
+  margin: 0;
+  padding: 15px;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: $dark-gray;
+  cursor: pointer;
+  line-height: 1;
+  font-weight: bold;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 5px;
+  padding: 10px 15px 12px 15px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: $med-gray;
+  font-weight: bold;
+  
+  &:last-child {
+    border-bottom: 0;
+  }
+  
+  &--header {
+    margin-bottom: 0;
+    background: transparent;
+    box-shadow: none;
+    color: $dark-gray;
+  }
+}
+
+.entry__date {
+  flex-shrink: 0;
+  width: 60px;
+}
+
+.entry__progress {
+  flex-shrink: 1;
+  position: relative;
+  width: 100%;
+  height: 25px;
+  top: 1px;
+  background: $light-gray;
+  box-shadow: 0 1px zpx rgba(0, 0, 0, 0.05) inset;
+  border-radius: 5px;
+  color: #fff;
+  overflow: hidden;
+  
+  .entry--aqi-1 & { background: linear-gradient(tint($aqi-1, 75%), tint($aqi-1, 85%)); }
+  .entry--aqi-2 & { background: linear-gradient(tint($aqi-2, 75%), tint($aqi-2, 85%)); }
+  .entry--aqi-3 & { background: linear-gradient(tint($aqi-3, 75%), tint($aqi-3, 85%)); }
+  .entry--aqi-4 & { background: linear-gradient(tint($aqi-4, 75%), tint($aqi-4, 85%)); }
+  .entry--aqi-5 & { background: linear-gradient(tint($aqi-5, 75%), tint($aqi-5, 85%)); }
+  
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0 10px;
+    background: $med-gray;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    
+    .entry--aqi-1 & { background: linear-gradient(tint($aqi-1, 30%), shade($aqi-1, 5%)); }
+    .entry--aqi-2 & { background: linear-gradient(tint($aqi-2, 30%), shade($aqi-2, 5%)); }
+    .entry--aqi-3 & { background: linear-gradient(tint($aqi-3, 30%), shade($aqi-3, 5%)); }
+    .entry--aqi-4 & { background: linear-gradient(tint($aqi-4, 30%), shade($aqi-4, 5%)); }
+    .entry--aqi-5 & { background: linear-gradient(tint($aqi-5, 30%), shade($aqi-5, 5%)); }
+  }
+}
+
+.entry__aqi {
+  flex-shrink: 0;
+  width: 40px;
+  text-align: right;
+}

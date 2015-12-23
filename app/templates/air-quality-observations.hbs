@@ -1,0 +1,27 @@
+<h1>AirFit Dashboard</h1>
+  <div class="entries">
+    <div class="select-menu">
+      <select class="select">
+        <option>Durham, NC</option>
+        <option>New Orleans, LA</option>
+        <option>San Francisco, CA</option>
+      </select>
+    </div>
+    <div class="entry entry--header">
+      <div class="entry__date">Date</div>
+      <div>% Exercised Outside</div>
+      <div class="entry__aqi">AQI</div>
+    </div>
+    {{#each model as |observation|}}
+      {{
+        observation-progress-bar
+          category=observation.category
+          dateObserved=observation.dateObserved
+          aqi=observation.aqi
+          percentageOutside=activity.firstObject.percentageOutside
+          inside=activity.firstObject.inside
+          outside=activity.firstObject.outside
+      }}
+    {{/each}}
+  </div>
+{{outlet}}
