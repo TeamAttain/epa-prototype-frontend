@@ -1,0 +1,7 @@
+<div {{bind-attr class=':entry categoryScore'}}>
+  <div class="entry__date">{{shortDate dateObserved}}</div>
+  <div class="entry__progress">
+    <div class="progress-bar" {{bind-attr style='percentageOutsideBarWidth'}}>{{percentageOutside}}% ({{outside}}/{{totalActivities}})</div>
+  </div>
+  <div class="entry__aqi">{{aqi}}</div>
+</div>

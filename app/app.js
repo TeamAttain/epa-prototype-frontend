@@ -13,6 +13,10 @@ App = Ember.Application.extend({
   Resolver
 });
 
+Ember.Helper.helper("log", function(something) {
+  console.log(something);
+});
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;
